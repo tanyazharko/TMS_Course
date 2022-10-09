@@ -1,0 +1,25 @@
+﻿<form method="post", action="~/Users/Registration">
+    <hr>
+    <input type="text" name="userName">
+    <label><b>Name</b></label><br/>
+    <br/>
+    <input type="text" name="surname">
+    <label><b>Surname</b></label><br/>
+    <br/>
+    <input type="text" name="patronymic">
+    <label><b>Patronymic</b></label><br/>
+    <br/>
+    <input type="text" name="gender">
+    <label><b>Gender</b></label><br/>
+    <br/>
+    <input type="text" Date" name="birthdayDate">
+    <label><b>Birthday Date: </b></label><br/>
+    <br/>
+    <input type="text" name="infoAboutYourself">
+    <label><b>Info About Yourself</b></label><br/>
+    <hr>
+    <input type="submit" asp-action="GetUserInfo" name="button" value="Register"/> 
+    <input type="submit" asp-action="ListOfUsers" name="button" value="List of users"/> 
+    
+  </div>
+  </form>
