@@ -1,0 +1,10 @@
+﻿@using HomeWork_10.Models
+{
+@model IEnumerable<Worker>
+
+@{
+    foreach (var worker in Model)
+    {
+        <h3> @worker.ToString() </h3> <br/>
+    }
+}
