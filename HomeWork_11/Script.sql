@@ -90,6 +90,3 @@ CREATE TABLE Orders
     CustomerId INTEGER REFERENCES Customers (Id),
     Quantity INTEGER
 );
-
-
-
