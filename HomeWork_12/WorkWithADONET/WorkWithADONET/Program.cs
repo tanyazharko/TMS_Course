@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using NodaTime;
+using System.Reflection;
 using WorkWithADONET;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,9 +31,9 @@ app.MapControllerRoute(
 
 using (CourseWorkContext db = new CourseWorkContext())
 {
-    User user1 = new User { Username = "Tom11", Name = "Tom", Gender = "Male", Age = 33, Weight = 90, Height = 189 };
+    User user1 = new User { Username = "Tom112", Name = "Tom", Gender = "Male", Age = 33, Weight = 90, Height = 189 };
   
-    db.Users.AddRange(user1);
+    db.Users.Add(user1);
     db.SaveChanges();
 }
 
@@ -39,9 +41,38 @@ using (CourseWorkContext db = new CourseWorkContext())
 {
     var users = db.Users.ToList();
     Console.WriteLine("Users list:");
+
     foreach (User u in users)
     {
-        Console.WriteLine($"{u.Id}.{u.Name} - {u.Age}");
+        Console.WriteLine($"{u.Username}.{u.Name} - {u.Age}");
+    }
+}
+
+using (CourseWorkContext db = new CourseWorkContext())
+{
+    User user = db.Users.FirstOrDefault();
+
+    if (user != null)
+    {
+        user.Username = "Bob_12";
+        user.Name = "Bob";
+        user.Gender = "Male";
+        user.Age = 33;
+        user.Weight = 90;
+        user.Height = 189;
+
+        db.SaveChanges();
+    }
+}
+
+using (CourseWorkContext db = new CourseWorkContext())
+{
+    User user = db.Users.FirstOrDefault();
+
+    if (user != null)
+    {
+        db.Users.Remove(user);
+        db.SaveChanges();
     }
 }
 
