@@ -1,6 +1,3 @@
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using NodaTime;
-using System.Reflection;
 using WorkWithADONET;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,6 +25,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 using (CourseWorkContext db = new CourseWorkContext())
 {
