@@ -24,13 +24,14 @@ namespace AwaitAndAsync
             Console.WriteLine("Enter count of iterations: ");
             int n = Input();
 
-            await Task.Delay(5000);
-            Console.WriteLine();
-
-            for (int i = 1; i <= n; i++)
+            await Task.Run(()=>
             {
-                Console.WriteLine($"Symbol:{temp},count of operations: {n},step: {i}");
-            }
+                for (int i = 1; i <= n; i++)
+                {
+                    Thread.Sleep(4000);
+                    Console.WriteLine($"Symbol:{temp},count of operations: {n},step: {i}");
+                }
+            });
         }
 
         static async Task WriteFileAsync(string file, string content)
